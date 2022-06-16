@@ -41,16 +41,16 @@
 </head>
 <body>
 <div>
-  <form method="POST"  name="createUser" action="<?php echo base_url().'index.php/user/edit',$user['user_id']?>">
+  <form method="POST"  name="createUser" action="<?php echo base_url().'index.php/user/edit/',$user['user_id']?>">
     <label for="fname">Name</label>
     <input  type="text" id="fname" name="name" value="<?php echo set_value('name',$user['name']);?>" placeholder="Your name..">
     <?php 
-    // echo form_error('name')
+     echo form_error('name')
     ?> 
     <label for="lname">Email</label>
     <input type="email" id="lname" name="email" value="<?php echo set_value('email',$user['email']);?>" placeholder="Your Email..">
   <?php 
-//   echo form_error('email')
+ echo form_error('email')
   ?>
    
     <input type="submit" value="update">

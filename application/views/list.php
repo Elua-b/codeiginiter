@@ -37,7 +37,7 @@
 <body>
     <div class="first">
     <h1>View user</h1>
-    <a href="<?php echo base_url().'index.php/user/create' ?>">Create</a>
+    <a href="<?php echo base_url().'index.php/user/create'?>">Create</a>
     </div>
     
     <table id="customers">

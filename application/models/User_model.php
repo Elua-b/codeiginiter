@@ -22,6 +22,23 @@ class User_model extends CI_Model{
        $this->db->where('user_id',$userId);
        return $user = $this->db->get('users')->row_array();
    }
+   function updateUser($userId){
+    $data = array(
+        "name"=> $this->input->post("name"),
+        "email" => $this->input->post("email")
+    );
+    $this->db->where('user_id',$userId);
+    $this->db->update('users',$data);
+   }
+   function deleteUser($userId){
+    // $data = array(
+    //     "name"=> $this->input->post("name"),
+    //     "email" => $this->input->post("email")
+    // );
+    $this->db->where('user_id',$userId);
+    $this->db->delete('users');
+   }
+  
 }  
 
 
