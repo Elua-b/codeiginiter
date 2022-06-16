@@ -30,7 +30,6 @@ class User extends CI_Controller
       }
    }
    function edit($userId){
-      $this->load->model('User_model');
       $user=$this->User_model->getUser($userId);
       $data=array();
       $data['user']=$user;
@@ -47,14 +46,16 @@ class User extends CI_Controller
       }
    }
    function delete($userId){
-      $this->load->model('User_model');
-      $user=$this->User_model->getUser($userId);
-   //    if(empty($user)){
-   //       $this->session->set_flashdata('failure')
-   //    }
-   // }
-    $user->deleteUser($userId);
-    redirect(base_url().'index.php/user/');
+      $userInstance = new User_model;
+      $user = $userInstance->getUser($userId);
+      if(empty($user)){
+         $this->session->set_flashdata('failure');
+        return;
+      }
+      $userInstance->deleteUser($userId);
+      redirect(base_url().'index.php/user/');
+   }
+   
 
    }
-}
+
